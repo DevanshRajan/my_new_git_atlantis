@@ -23,12 +23,14 @@ resource "aws_subnet" "first" {
   }
 }
 
-resource "aws_instance" "firstec2" {
-  ami           = "ami-08c40ec9ead489470"
-  instance_type = "t2.micro"
-  key_name      = "my_ssm"
-  subnet_id     = aws_subnet.first.id
-  tags = {
-    Name = "new_knode"
+resource "aws_security_group" "example" {
+  # ... other configuration ...
+
+  egress {
+    from_port        = 0
+    to_port          = 0
+    protocol         = "-1"
+    cidr_blocks      = ["0.0.0.0/0"]
+    ipv6_cidr_blocks = ["::/0"]
   }
 }
