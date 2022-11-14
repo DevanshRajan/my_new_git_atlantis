@@ -23,12 +23,3 @@ resource "aws_subnet" "first" {
   }
 }
 
-resource "aws_instance" "firstec2" {
-  ami           = "ami-08c40ec9ead489470"
-  instance_type = "t2.micro"
-  key_name      = "my_ssm"
-  subnet_id     = aws_subnet.first.id
-  tags = {
-    Name = "new_knode"
-  }
-}
