@@ -23,8 +23,8 @@ resource "aws_subnet" "first" {
   }
 }
 
+
 resource "aws_security_group" "example" {
-  # ... other configuration ...
 
   egress {
     from_port        = 0
@@ -34,3 +34,4 @@ resource "aws_security_group" "example" {
     ipv6_cidr_blocks = ["::/0"]
   }
 }
+
